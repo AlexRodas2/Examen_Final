@@ -21,6 +21,7 @@ public class JDProductos extends javax.swing.JDialog {
         conn= basedatos.ObtenerConexion();
     }
 
+    //se crea el metodo guardar que se encargara de enviar los datos de los campos hacia BD//
     public void guardar(){
        int cod;
        String idp,nombrep,descripcionp,fechaa, fechav,precio;
@@ -70,7 +71,8 @@ public class JDProductos extends javax.swing.JDialog {
            }
        }
    }
-    
+   // se crea el metodo mostrar que llamara los datos de la BD correspondiente y los mostrara por medio de ciclos
+    //tanto columnas como filas
     public void mostrar(){
        Conexion basedatos= new Conexion();
                Connection conn;
@@ -115,6 +117,7 @@ public class JDProductos extends javax.swing.JDialog {
                
    }
 
+    //se crea el metodo eliminar que enviara codigo de estado 0 al registro correspondiente//
     public void Eliminar (){
     int filInicio= tbldatos.getSelectedRow();
     int numfila= tbldatos.getSelectedRowCount();
@@ -159,6 +162,7 @@ public class JDProductos extends javax.swing.JDialog {
     }
 }
     
+    //se crea metodo modificar que se encargara de modificar todos los campos de la BD segun se envien//
     public void Modificar (){
     int filInicio= tbldatos.getSelectedRow();
     int numfila= tbldatos.getSelectedRowCount();
@@ -212,6 +216,7 @@ public class JDProductos extends javax.swing.JDialog {
         JOptionPane.showMessageDialog(null, "Porfavor elija un registro para Actualizar");
     }
 }
+    //se crea el metodo  limpiar que enviara texto vacio a todos los campos //
     public void Limpiar(){
         idproducto.setText("");
         nombreproducto.setText("");
@@ -221,7 +226,7 @@ public class JDProductos extends javax.swing.JDialog {
         precioproducto.setText("");
         
     }
-
+// metodo cargar se encargara de enviar los datos de la tabla hacia los campos para permitir modificarlos
     public void cargar(){
     if(tbldatos.getSelectedRowCount()>0){
         idproducto.setText(tbldatos.getValueAt(tbldatos.getSelectedRow(), 0).toString());
@@ -237,6 +242,7 @@ public class JDProductos extends javax.swing.JDialog {
                 btnaceptar.setEnabled(true);
     }
 }
+    //desbloqueara los botonos luego de haber confirmado la actualizacion de informacion//
     void desbloquear(){
     btncrear.setEnabled(true);
     btnmodificar.setEnabled(true);

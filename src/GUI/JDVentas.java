@@ -17,7 +17,7 @@ public class JDVentas extends javax.swing.JDialog {
         Connection conn;
         conn= basedatos.ObtenerConexion();
     }
-
+//se crea el metodo guardar que se encargara de enviar los datos de los campos hacia BD//
    public void guardar(){
        int cod;
        String idv,nombrepr,precioun,cantidad1,nit1,ncliente;
@@ -71,7 +71,7 @@ public class JDVentas extends javax.swing.JDialog {
            }
        }
    }
-   
+   // se crea el metodo operaciones para calcular total y descuento//
    public void operaciones(){
        String total= cantidad.getText();
        String total2= preciou.getText();
@@ -87,7 +87,8 @@ public class JDVentas extends javax.swing.JDialog {
                desc.setText("0");
            }
    }
-   
+    // se crea el metodo mostrar que llamara los datos de la BD correspondiente y los mostrara por medio de ciclos
+    //tanto columnas como filas
     public void mostrar(){
        Conexion basedatos= new Conexion();
                Connection conn;
@@ -132,6 +133,7 @@ public class JDVentas extends javax.swing.JDialog {
                }
                
    }
+    //se crea el metodo eliminar que enviara codigo de estado 0 al registro correspondiente//
    public void Eliminar (){
     int filInicio= tbldatos.getSelectedRow();
     int numfila= tbldatos.getSelectedRowCount();
@@ -175,7 +177,7 @@ public class JDVentas extends javax.swing.JDialog {
         JOptionPane.showMessageDialog(null, "Porfavor elija un registro para eliminar");
     }
 }
-   
+   //se crea metodo modificar que se encargara de modificar todos los campos de la BD segun se envien//
    public void Modificar (){
     int filInicio= tbldatos.getSelectedRow();
     int numfila= tbldatos.getSelectedRowCount();
@@ -230,7 +232,7 @@ public class JDVentas extends javax.swing.JDialog {
         JOptionPane.showMessageDialog(null, "Porfavor elija un registro para Actualizar");
     }
 }
-   
+   // metodo cargar se encargara de enviar los datos de la tabla hacia los campos para permitir modificarlos
     public void cargar(){
     if(tbldatos.getSelectedRowCount()>0){
         idventa.setText(tbldatos.getValueAt(tbldatos.getSelectedRow(), 0).toString());
@@ -250,7 +252,7 @@ public class JDVentas extends javax.swing.JDialog {
                 btnaceptar.setEnabled(true);
     }
 }
-   
+    //desbloqueara los botonos luego de haber confirmado la actualizacion de informacion//
     void desbloquear(){
     btncrear.setEnabled(true);
     btnmodificar.setEnabled(true);
@@ -260,7 +262,7 @@ public class JDVentas extends javax.swing.JDialog {
     btnlimpiar.setEnabled(true);
     btnsalir.setEnabled(true);
     }
-    
+     //se crea el metodo  limpiar que enviara texto vacio a todos los campos //
     public void Limpiar(){
         idventa.setText("");
         nombrep.setText("");

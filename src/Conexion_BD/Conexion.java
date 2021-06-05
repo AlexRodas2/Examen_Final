@@ -10,6 +10,7 @@ public class Conexion {
     private String url="jdbc:mysql://localhost/"+db;
     private Connection conn= null;
     
+    //se especifican los parametros de conexion a la BD//
     public Conexion(){
         this.url="jdbc:mysql://localhost:3306/"
                 + "examenfinal?serverTunezone=UTC";
